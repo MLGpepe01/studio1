@@ -20,11 +20,29 @@ const imagesDiv = document.getElementById('images');
 const imageForm = document.getElementById('image-form');
 const urlInput = document.getElementById('image-url');
 
+
 // Display images
+export function get_database_snapshot() {
+  // Get reference to the database service
+  var database = firebase.database();
+  // Get reference to the data you want. 
+  var ref = database.ref('/posts');
+  // Read the data from the database and take a snapshot
+  // of that data
+  ref.once("value").then(function(snapshot){
+    // .val() gets the data from the snapshot.
+    console.log(snapshot.val());
+    // Can provide a callback method to perform an action
+    // on the data returned from the DB.
+    //callback(snapshot);
+  });
+}
+
 posts.on('child_added', data => {
-  let img = document.createElement('img');
-  img.src = data.val().image;
-  imagesDiv.appendChild(img);
+  console.log (data.val());
+  //let img = document.createElement('img');
+  //img.src = data.val().image;
+  //imagesDiv.appendChild(img);
 });
 
 // Add a new image
@@ -35,4 +53,6 @@ imageForm.addEventListener('submit', e => {
     urlInput.value = ''; // signal complete
   });
 
+
 });
+get_database_snapshot();
