@@ -19,7 +19,7 @@ const posts = database.ref('posts');
 const imagesDiv = document.getElementById('images');
 const imageForm = document.getElementById('image-form');
 const urlInput = document.getElementById('image-url');
-
+const textInput = document.getElementById('image-text');
 
 // Display images
 export function get_database_snapshot() {
@@ -35,6 +35,7 @@ export function get_database_snapshot() {
     // Can provide a callback method to perform an action
     // on the data returned from the DB.
     //callback(snapshot);
+    getElementById('images')
   });
 }
 
@@ -49,8 +50,10 @@ posts.on('child_added', data => {
 imageForm.addEventListener('submit', e => {
   e.preventDefault();
 
-  posts.push({ image: urlInput.value }, () => {
-    urlInput.value = ''; // signal complete
+  posts.push({ image: urlInput.value,text: textInput.value }, () => {
+    urlInput.value = '';
+    textInput.value= '';
+     // signal complete
   });
 
 
