@@ -15,9 +15,13 @@ const urlInput = document.getElementById('image-url');
 
 // Display images
 posts.on('child_added', data => {
+  var post = data.val();
   let img = document.createElement('img');
-  img.src = data.val().image;
+  let txt = document.createElement('p')
+  img.src = post.image;   
+  txt.innerText = post.text;
   imagesDiv.appendChild(img);
+  imagesDiv.appendChild(txt);
 });
 
 // Add a new image
