@@ -1,1 +1,30 @@
 /* Write your CSS here */
+input[type=text] {
+          height:1.5em;
+          padding:5px 5px 0px .4em;
+          margin-bottom: 10px ;
+         border-radius:.5em;
+          -moz-border-radius:.5em;
+          -webkit-border-radius:.5em;
+          text-transform:none;
+          width:150px;
+         background:#5E768D;
+         background:-webkit-gradient(linear, left top, left 25, from(#FFFFFF), 
+                 color-stop(4%,#c6d1da), to(#5E768D));
+         color:#fff;
+         font-size:1.1em;
+     }
+     input[type=text]:focus{
+         box-shadow:3px 3px 10px #446;
+         outline:none;
+     }
+     body{
+
+        background-image: url("https://www.hdqwalls.com/wallpapers/nature-background.jpg")
+        
+     }
+     p{
+    font-family: cursive;
+    color: white 
+
+     }
